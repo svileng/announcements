@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Svilen Gospodinov"]
   s.email       = ["svilen@gospodinov.co.uk"]
   s.homepage    = ""
-  s.summary     = "Announcements for Rails >= 3.1.0"
+  s.summary     = "Announcements gem for Rails"
   s.description = "The Announcements gem makes it easier to display short announcement messages in your views"
 
   s.rubyforge_project = "announcements"
@@ -20,6 +20,6 @@ Gem::Specification.new do |s|
 
   # specify any dependencies here; for example:
   # s.add_development_dependency "rspec"
-  s.add_runtime_dependency "jquery-rails"
-  s.add_runtime_dependency "rails", ">= 3.1.0"
+  s.add_runtime_dependency "rails", "~> 3.1"
+
 end

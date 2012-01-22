@@ -1,5 +1,8 @@
 # announcements
 
+The Announcements gem provides an easy way to publish short messages in your views, which the user can then hide permanently. It is influenced by the gem `paul_revere` by thoughtbot, but is
+much much simpler - no partials used, 'type' attribute for different types of announcements, and others.
+
 ## Quick start
 
 1. Requirements: rails >= 3.1.0 and jquery
