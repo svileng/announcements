@@ -8,7 +8,7 @@ module Announcements
 			say "--- Creating model in app/models..."
 			template "announcement.rb", "app/models/announcement.rb"
 			say "--- Creating the migration ..."
-			generate("model", "announcement body:text public:integer --skip")
+			generate("model", "announcement body:text type:string --skip")
 			say "--- Running the migration..."
 			rake("db:migrate")	
 		end
@@ -18,6 +18,7 @@ module Announcements
 			template "announcements.js", "vendor/assets/javascripts/announcements.js"
 			say "--- Adding require in app/assets/javascripts/application.js..."
 			insert_into_file "app/assets/javascripts/application.js", "//= require announcements\n", :after => "jquery_ujs\n"
+			say "--- IMPORTANT: New asset was added in the vendor folder; you have to precompile assets for production!"
 		end
 				
 	end
