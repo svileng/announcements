@@ -1,11 +1,12 @@
 # announcements
 
-The Announcements gem provides an easy way to publish short messages in your views, which the user can then hide permanently. It is influenced by the gem `paul_revere` by thoughtbot, but is
-much much simpler - no partials used, 'type' attribute for different types of announcements, and others.
+The Announcements gem provides an easy way to publish short messages in your views, which the user can then hide permanently.
+It was influenced by the gem `paul_revere` by thoughtbot, but unlike `paul_revere`, `announcements` doesn't use partials (instead,
+there is a single helper method which you can customise) and is a bit more flexible (you have an additional 'type' attribute by default).
 
 ## Quick start
 
-1. Requirements: rails >= 3.1.0 and jquery
+1. Requirements: rails >= 3.1.0 and jquery-rails
 2. Add `gem 'announcements'` to your Gemfile and run `bundle`
 3. Run `rails g announcements:install`
 4. Use `<%= announce Announcement.newest %>` in your views to display the latest announcement
@@ -45,13 +46,13 @@ The default HTML output of the `announce` helper is
 
 The default div class is `info`. You can specify you own like that:
 
-```ruby
+```
 <%= announce Announcement.newest, :div_class => "mydiv" %>
 ```
 
 You can also change the "hide message" text:
 
-```ruby
+```
 <%= announce Announcement.newest, :div_class => "mydiv", :hide_message => "X" %>
 ```
 
