@@ -44,7 +44,7 @@ The default HTML output of the `announce` helper is
 </div>
 ```
 
-The default div class is `info`. You can specify you own like that:
+The default div class is `info`. You can customise it like that:
 
 ```
 <%= announce Announcement.newest, :div_class => "mydiv" %>
@@ -55,6 +55,8 @@ You can also change the "hide message" text:
 ```
 <%= announce Announcement.newest, :div_class => "mydiv", :hide_message => "X" %>
 ```
+
+The output from the helper is marked as html_safe, so you can have links or add more formatting in the announcement text itself.
 
 ## How it works
 
