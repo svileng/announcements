@@ -1,8 +1,4 @@
 class Announcement
   attr_accessor :body
-
-  def id
-    1
-  end
-
+  attr_accessor :id
 end
