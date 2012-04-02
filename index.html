@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Announcements by svileng</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/svileng/announcements">Fork On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/svileng/announcements/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/svileng/announcements/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Announcements</h1>
+          <p>Easy way to display short announcement messages in your views.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/svileng">svileng</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>announcements</h1>
+
+<p>The Announcements gem provides an easy way to publish short messages in your views, which the user can then hide permanently.
+It was influenced by the gem <code>paul_revere</code> by thoughtbot, but unlike <code>paul_revere</code>, <code>announcements</code> doesn't use partials (instead,
+there is a single helper method which you can customise) and is a bit more flexible (you have an additional 'type' attribute by default).</p>
+
+<h2>Quick start</h2>
+
+<ol>
+<li>Requirements: rails &gt;= 3.1.0 and jquery-rails</li>
+<li>Add <code>gem 'announcements'</code> to your Gemfile and run <code>bundle</code>
+</li>
+<li>Run <code>rails g announcements:install</code>
+</li>
+<li>Use <code>&lt;%= announce Announcement.newest %&gt;</code> in your views to display the latest announcement</li>
+<li>Create your first announcement in <code>rails c</code> by simply creating a new Announcement record, like <code>Announcement.create(:body =&gt; 'This is my first announcement!')</code>
+</li>
+<li>Next, add some CSS (find an example below; the default output is quite plain and ugly) and customise it.</li>
+</ol><h2>Styling</h2>
+
+<p>By default, the announcement text and hide message text are wrapped in a div called "info" (if you want to customise that, see the Customisation section below).
+You can use the following css in your application.css file to start:</p>
+
+<div class="highlight">
+<pre><span class="nc">.info</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="m">#D5EDF8</span><span class="p">;</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#205791</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">0.8em</span><span class="p">;</span>
+    <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">1em</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">2px</span> <span class="k">solid</span> <span class="m">#92CAE4</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.hide_announcement</span> <span class="p">{</span>
+    <span class="k">cursor</span><span class="o">:</span> <span class="k">pointer</span><span class="p">;</span>
+    <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+
+<h2>Customisation</h2>
+
+<p>The default HTML output of the <code>announce</code> helper is</p>
+
+<div class="highlight">
+<pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"info"</span><span class="nt">&gt;</span>
+    My announcement!
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"hide_announcement"</span> <span class="na">data-announcementid=</span><span class="s">"1"</span><span class="nt">&gt;</span>hide message<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre>
+</div>
+
+
+<p>The default div class is <code>info</code>. You can customise it like that:</p>
+
+<pre><code>&lt;%= announce Announcement.newest, :div_class =&gt; "mydiv" %&gt;
+</code></pre>
+
+<p>You can also change the "hide message" text:</p>
+
+<pre><code>&lt;%= announce Announcement.newest, :div_class =&gt; "mydiv", :hide_message =&gt; "X" %&gt;
+</code></pre>
+
+<p>The output from the helper is marked as html_safe, so you can have links or add more formatting in the announcement text itself.</p>
+
+<h2>How it works</h2>
+
+<p>The gem creates an Announcement model with a few class methods like <code>Announcement.newest</code>. The Announcement model has a body:text (the actual announcement text) 
+and a type:string (which you can use for different types of announcements, e.g. public (everyone) and private (only for registered users)). There is also a js file in vendor/assets/javascripts
+which permanently hides the announcement by creating a cookie (that's when you click on the 'hide message' text).</p>
+
+<h2>How to uninstall</h2>
+
+<p>There is no uninstaller at this point, but you can simply remove the following files manually:</p>
+
+<ol>
+<li>app/models/announcement.rb</li>
+<li>vendor/assets/javascripts/announcements.js</li>
+</ol><p>You also have to remove the <code>//= require announcements</code> line in your app/assets/javascripts/application.js file, and rollback the <code>create_announcements</code> migration.</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
