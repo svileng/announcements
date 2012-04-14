@@ -5,10 +5,10 @@ require "announcements/version"
 Gem::Specification.new do |s|
   s.name        = "announcements"
   s.version     = Announcements::VERSION
-  s.authors     = ["Svilen Gospodinov"]
-  s.email       = ["svilen@gospodinov.co.uk"]
+  s.authors     = ["Chase Southard", "Svilen Gospodinov"]
+  s.email       = ["chase.southard@gmail.com"]
   s.homepage    = ""
-  s.summary     = "Announcements gem for Rails"
+  s.summary     = "Announcements gem for Rails (slightly modified for twitter bootsrap by default)"
   s.description = "The Announcements gem makes it easier to display short announcement messages in your views"
 
   s.rubyforge_project = "announcements"
