@@ -34,9 +34,8 @@ By default, the announcement text and hide message text are wrapped in a div cla
 The default HTML output of the `announce` helper is
 
 ```html
-<div class="info">
-	My announcement!
-	<span class="hide_announcement" data-announcementid="1">hide message</span>
+<div class="alert alert-block">
+	<a class="close" data-announcementid="1">x</a><h4 class="alert-heading">Warning!</h4>check yo self
 </div>
 ```
 
@@ -46,10 +45,16 @@ The default div class is `info`. You can customise it like that:
 <%= announce Announcement.newest, :div_class => "mydiv" %>
 ```
 
+You can also change the "alert heading" text:
+
+```
+<%= announce Announcement.newest, :alert_heading => "Achtung!" %>
+```
+
 You can also change the "hide message" text:
 
 ```
-<%= announce Announcement.newest, :div_class => "mydiv", :hide_message => "×" %>
+<%= announce Announcement.newest, :hide_message => "×" %>
 ```
 
 The output from the helper is marked as html_safe, so you can have links or add more formatting in the announcement text itself.
