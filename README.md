@@ -4,7 +4,7 @@ The Announcements gem provides an easy way to publish short messages in your vie
 It was influenced by the gem `paul_revere` by thoughtbot, but unlike `paul_revere`, `announcements` doesn't use partials (instead,
 there is a single helper method which you can customise) and is a bit more flexible (you have an additional 'type' attribute by default).
 
-## Update:
+## Update
 
 Now by default `announcements` displays alerts in the `twitter-bootstrap` [style](http://twitter.github.com/bootstrap/components.html#alerts).
 
