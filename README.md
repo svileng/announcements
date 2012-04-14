@@ -6,7 +6,7 @@ there is a single helper method which you can customise) and is a bit more flexi
 
 ## Update
 
-Now by default `announcements` displays alerts in the `twitter-bootstrap` [style](http://twitter.github.com/bootstrap/components.html#alerts).
+In this fork of `announcements` orginally written by [svileng](https://github.com/svileng/announcements), by default `announcements` displays alerts in the `twitter-bootstrap` [style](http://twitter.github.com/bootstrap/components.html#alerts).
 
 Be sure to use one of the twitter-bootstrap gems.
 
