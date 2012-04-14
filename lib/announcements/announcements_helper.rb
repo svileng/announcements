@@ -13,7 +13,7 @@ module AnnouncementsHelper
 		if announcement != nil && cookies["announcement_" + announcement.id.to_s] != "hidden"
 			content_tag :div, :class => div_class do
 				result = announcement.body.html_safe
-				result << content_tag(:a, text, :class => "close", :data => { :announcementid => announcement.id, :dismiss => "alert" })
+				result << content_tag(:a, text, :class => "close", :data => { :announcementid => announcement.id })
 				result
 			end
 		end
