@@ -13,8 +13,8 @@ module AnnouncementsHelper
 		alert_heading = options[:alert_heading] || "Warning!"
 		if announcement != nil && cookies["announcement_" + announcement.id.to_s] != "hidden"
 			content_tag :div, :class => div_class do
-				result = content_tag(:h4, alert_heading, :class => "alert-heading")
-				result << content_tag(:a, text, :class => "close", :data => { :announcementid => announcement.id })
+				result = content_tag(:a, text, :class => "close", :data => { :announcementid => announcement.id })
+				result << content_tag(:h4, alert_heading, :class => "alert-heading")
 				result << announcement.body.html_safe
 				result
 			end
