@@ -6,7 +6,11 @@ there is a single helper method which you can customise) and is a bit more flexi
 
 ## Update
 
-In this fork of `announcements` orginally written by [svileng](https://github.com/svileng/announcements), by default `announcements` displays alerts in the `twitter-bootstrap` [style](http://twitter.github.com/bootstrap/components.html#alerts).
+A new option has been added to `announcements` to display alerts in the `twitter-bootstrap` [style](http://twitter.github.com/bootstrap/components.html#alerts) through the following usage:
+
+```
+<%= announce Announcement.newest, :format => "bootstrap" %>
+```
 
 Be sure to use one of the twitter-bootstrap gems.
 
@@ -21,12 +25,22 @@ Be sure to use one of the twitter-bootstrap gems.
 
 ## Styling
 
-By default, the announcement text and hide message text are wrapped in a div classed as "alert alert-block" consistent with Twitter Bootstrap. 
+By default, the announcement text and hide message text are wrapped in a div called "info" (if you want to customise that, see the Customisation section below).
+You can use the following css in your application.css file to start:
 
-```html
-<div class="alert alert-block">
-	<a class="close" data-announcementid="1">x</a><h4 class="alert-heading">Warning!</h4>check yo self
-</div>
+```css
+.info {
+	background: #D5EDF8;
+	color: #205791;
+	padding: 0.8em;
+	margin-bottom: 1em;
+	border: 2px solid #92CAE4;
+}
+
+.hide_announcement {
+	cursor: pointer;
+	float: right;
+}
 ```
 
 ## Customization
@@ -34,8 +48,9 @@ By default, the announcement text and hide message text are wrapped in a div cla
 The default HTML output of the `announce` helper is
 
 ```html
-<div class="alert alert-block">
-	<a class="close" data-announcementid="1">x</a><h4 class="alert-heading">Warning!</h4>check yo self
+<div class="info">
+	My announcement!
+	<span class="hide_announcement" data-announcementid="1">hide message</span>
 </div>
 ```
 
@@ -45,10 +60,16 @@ The default div class is `info`. You can customise it like that:
 <%= announce Announcement.newest, :div_class => "mydiv" %>
 ```
 
-You can also change the "alert heading" text:
+For `Twitter Bootstrap` support:
 
 ```
-<%= announce Announcement.newest, :alert_heading => "Achtung!" %>
+<%= announce Announcement.newest, :format => "bootstrap" %>
+```
+
+When using the bootstrap format, you can also change the "alert heading" text:
+
+```
+<%= announce Announcement.newest, {:format => "bootstrap", :alert_heading => "Achtung!"} %>
 ```
 
 You can also change the "hide message" text:
