@@ -11,7 +11,7 @@ there is a single helper method which you can customise) and is a bit more flexi
 3. Run `rails g announcements:install`
 4. Use `<%= announce Announcement.newest %>` in your views to display the latest announcement
 5. Create your first announcement in `rails c` by simply creating a new Announcement record, like `Announcement.create(:body => 'This is my first announcement!')`
-6. Next, relax bootstrap's got the rest.
+6. You're done! You can now add some styling and have a look at the customization options below.
 
 ## Styling
 
