@@ -6,9 +6,9 @@ Gem::Specification.new do |s|
   s.name        = "announcements"
   s.version     = Announcements::VERSION
   s.authors     = ["Svilen Gospodinov", "Chase Southard"]
-  s.email       = ["svilen@gospodinov.co.uk"]
+  s.email       = "svilen@gospodinov.co.uk"
   s.homepage    = "https://github.com/svileng/announcements"
-  s.summary     = "Announcements gem for Rails (slightly modified for twitter bootsrap by default)"
+  s.summary     = "Announcements gem for Rails (slightly modified for twitter bootsrap as an option)"
   s.description = "The Announcements gem makes it easier to display short announcement messages in your views"
 
   s.rubyforge_project = "announcements"
