@@ -2,7 +2,7 @@
 
 The Announcements gem provides an easy way to publish short messages in your views, which the user can then hide permanently.
 It was influenced by the gem `paul_revere` by thoughtbot, but unlike `paul_revere`, `announcements` doesn't use partials (instead,
-there is a single helper method which you can customise) and is a bit more flexible (you have an additional 'type' attribute by default).
+there is a single helper method which you can customise) and is a bit more flexible (you have an additional 'type' attribute by default). Announcements can also output text in a twitter-bootstrap style format (see below).
 
 ## Quick start
 
@@ -11,7 +11,7 @@ there is a single helper method which you can customise) and is a bit more flexi
 3. Run `rails g announcements:install`
 4. Use `<%= announce Announcement.newest %>` in your views to display the latest announcement
 5. Create your first announcement in `rails c` by simply creating a new Announcement record, like `Announcement.create(:body => 'This is my first announcement!')`
-6. Next, add some CSS (find an example below; the default output is quite plain and ugly) and customise it.
+6. Next, relax bootstrap's got the rest.
 
 ## Styling
 
@@ -33,7 +33,7 @@ You can use the following css in your application.css file to start:
 }
 ```
 
-## Customisation
+## Customization
 
 The default HTML output of the `announce` helper is
 
@@ -53,10 +53,26 @@ The default div class is `info`. You can customise it like that:
 You can also change the "hide message" text:
 
 ```
-<%= announce Announcement.newest, :div_class => "mydiv", :hide_message => "X" %>
+<%= announce Announcement.newest, :hide_message => "×" %>
 ```
 
 The output from the helper is marked as html_safe, so you can have links or add more formatting in the announcement text itself.
+
+## For Twitter Bootstrap users
+
+A new option has been added to `announcements` to display alerts in the `twitter-bootstrap` [style](http://twitter.github.com/bootstrap/components.html#alerts) through the following usage:
+
+```
+<%= announce Announcement.newest, :format => "bootstrap" %>
+```
+
+You can also change the "alert heading" text (twitter bootstrap option only):
+
+```
+<%= announce Announcement.newest, {:format => "bootstrap", :alert_heading => "Achtung!"} %>
+```
+
+Be sure to use one of the twitter-bootstrap gems.
 
 ## How it works
 

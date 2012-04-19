@@ -17,7 +17,7 @@ describe AnnouncementsHelper do
   it "should output announcement text with no params" do
     @mocked_cookies["announcement_1"] = "not hidden"
     output = announce(@announcement)
-    output.should include("hide message")
+    output.should include("x")
     output.should include("announcement text")
   end
 
@@ -27,11 +27,18 @@ describe AnnouncementsHelper do
     output.should be_nil
   end
 
-  it "should outpu custom hide message and div class" do
+  it "should output custom hide message and div class" do
     @mocked_cookies["announcement_1"] = "not hidden"
     output = announce(@announcement, hide_message: "X", div_class: "customdiv")
     output.should include("<div class=\"customdiv\"")
     output.should include(">X</span>")
+  end
+
+  it "should output bootstrap style" do 
+    @mocked_cookies["announcement_1"] = "not hidden"
+    output = announce(@announcement, format: "bootstrap")
+    output.should include("<a class=\"close\"")
+    output.should include("<h4 class=\"alert-heading\"")
   end
 
 end
