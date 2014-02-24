@@ -17,7 +17,7 @@ module AnnouncementsHelper
       data_attribute = { :announcementid => announcement.id }
       if options[:format] == "bootstrap"
         text = options[:hide_message] || "x"
-        div_class = options[:div_class] || "alert alert-block"
+        div_class = options[:div_class] || "alert alert-warning"
         alert_heading = announcement.heading || options[:alert_heading] || "Warning!"
 
         close_content_tag = content_tag(:a, text, :class => "close", data: data_attribute)
