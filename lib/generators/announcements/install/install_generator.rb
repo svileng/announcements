@@ -8,7 +8,7 @@ module Announcements
 			say "--- Creating model in app/models..."
 			template "announcement.rb", "app/models/announcement.rb"
 			say "--- Creating the migration ..."
-			generate("model", "announcement body:text type:string --skip")
+			generate("model", "announcement body:text heading:text type:string --skip")
 			say "--- Running the migration..."
 			rake("db:migrate")	
 		end
